@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home | Photography World</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid mt-5">
+        <!-- <div class="row">
+            <div id="filter-container" class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="form-group">
+                            <input type="number" min="3" max="20" class="form-control"
+                            placeholder="Items per page" />
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p>Here</p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <p>Here</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2 mb-4">
+                <div class="d-flex">
+                    <h3>Филтър</h3>
+                </div>
+                <hr>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="searchInput" class="form-control-label">Търсене</label>
+                            <input type="text" id="searchInput" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="limitInput" class="form-control-label">Елементи на страница</label>
+                            <input type="number" min="3" max="200" id="limitInput" class="form-control" value="6" />
+                        </div>
+                        <div class="form-group">
+                            <label for="langInput" class="form-control-label">Език</label>
+                            <select id="langInput" class="form-control">
+                                <option value="en">English</option>
+                                <option value="bg" selected>Български</option>
+                                <option value="es">Español</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryInput" class="form-control-label">Категория</label>
+                            <select id="categoryInput" class="form-control">
+                                <option value="" selected>-- Без значение --</option>
+                                <option value="backgrounds">Фонове</option>
+                                <option value="fashion">Мода</option>
+                                <option value="nature">Природа</option>
+                                <option value="science">Наука</option>
+                                <option value="education">Образование</option>
+                                <option value="feelings">Чувства</option>
+                                <option value="health">Здраве</option>
+                                <option value="people">Хора</option>
+                                <option value="religion">Религия</option>
+                                <option value="places">Места</option>
+                                <option value="animals">Животни</option>
+                                <option value="industry">Индустрия</option>
+                                <option value="computer">Компютри</option>
+                                <option value="food">Храна</option>
+                                <option value="sports">Спорт</option>
+                                <option value="transportation">Транспорт</option>
+                                <option value="travel">Пътуване</option>
+                                <option value="buildings">Сгради</option>
+                                <option value="business">Бизнес</option>
+                                <option value="music">Музика</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input id="editorsChoiceInput" type="checkbox" class="custom-control-input">
+                                <label for="editorsChoiceInput" class="custom-control-label">Избор на редактора</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input id="saveSearchInput" type="checkbox" class="custom-control-input">
+                                <label for="saveSearchInput" class="custom-control-label">*Safe search*</label>
+                            </div>
+                        </div>
+                        <a id="applyBtn" href="#" class="btn btn-primary btn-sm btn-round ml-0">Филтрирай</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                <div class="d-flex">
+                    <h3>Снимки</h3>
+                    <h3 class="ml-auto">
+                        <i class="fas fa-th-large mr-3 text-primary" style="cursor: pointer;"></i>
+                        <i class="fas fa-list grey-text" style="cursor: pointer;"></i>
+                    </h3>
+                </div>
+                <hr>
+                <div id="photo-container" class="row"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="element-clone" class="col-12 col-lg-6 col-xl-4 mb-4" style="display: none;">
+        <div class="card">
+            <div class="view overlay">
+                <img id="main-image" class="card-img-top" src="#" alt="Card image cap">
+                <a id="main-image-link" href="#" target="_blank">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <!-- <h4 class="card-title"><a>Card title</a></h4> -->
+                <div class="mb-2">
+                    <i class="far fa-eye text-info" title="Views"></i>
+                    <span id="views" title="Views">54</span>
+                    <span>&bull;</span>
+                    <i class="fas fa-heart text-danger" title="Favorites"></i>
+                    <span id="favorites" title="Favorites">494</span>
+                    <span>&bull;</span>
+                    <i class="far fa-thumbs-up text-success" title="Likes"></i>
+                    <span id="likes" title="Likes">89</span>
+                    <span>&bull;</span>
+                    <i class="fas fa-download grey-text" title="Downloads"></i>
+                    <span id="downloads" title="Downloads">34</span>
+                </div>
+                <div>
+                    <span id="tags"></span>
+                </div>
+
+                <hr>
+                <div class="d-flex justify-content-start">
+                    <div class="g-mt-2">
+                        <img id="author-image" class="rounded-circle mr-2" style="height: 50px; width: 50px;" src="#"
+                            srcset="#" alt=" Unknown image">
+                    </div>
+                    <div class="align-self-center g-px-10">
+                        <h5 class="h6 font-weight-bold">
+                            <a id="author-name" href="#" class="text-dark" target="_blank">Author</a>
+                        </h5>
+                        <!-- <p class="m-0">Text</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var apiKey = "7800072-61da03e5f9a4b085174c2f98f";
+        var query = "";
+        var page = 1;
+        var perPage = 6;
+        var lang = "bg";
+        var category = "";
+        var isEditorsChoice = false;
+        var isSafeSearch = false;
+
+        $("#applyBtn").click(function () {
+            applyBtnClick();
+        });
+
+        $(".form-control").keypress(function (e) {
+            if (e.keyCode === 13) {
+                // Cancel the default action, if needed
+                e.preventDefault();
+
+                applyBtnClick();
+            }
+        });
+
+        function applyBtnClick() {
+            query = $("#searchInput").val();
+            lang = $("#langInput").val();
+            category = $("#categoryInput").val();
+            perPage = $("#limitInput").val();
+            if (perPage < 3) {
+                $("#limitInput").val(3);
+                perPage = 3;
+            } else if (perPage > 200) {
+                $("#limitInput").val(200);
+                perPage = 200;
+            }
+            isEditorsChoice = $("#editorsChoiceInput").is(":checked");
+            isSafeSearch = $("#saveSearchInput").is(":checked");
+
+            callApi();
+        }
+
+        function callApi() {
+            $.ajax({
+                method: "GET",
+                url: "https://pixabay.com/api/?key=" + apiKey + "&q=" + query + "&lang=" + lang + "&category=" + category +
+                    "&editors_choice=" + isEditorsChoice + "&safesearch=" + isSafeSearch + "&page=" + page + "&per_page=" + perPage,
+                dataType: "json"
+            }).done(function (data) {
+                $("#photo-container").empty();
+
+                if (data.hits.length === 0) {
+                    $("#photo-container").html("<div class=\"col-12\"><h3>Няма снимки по избраните от вас критерии</h3></div>");
+                }
+
+                $.each(data.hits, function (index, value) {
+                    var clone = $("#element-clone").clone();
+                    clone.removeAttr("id");
+                    clone.find("#main-image").attr("src", value.largeImageURL);
+                    clone.find("#main-image-link").attr("href", value.pageURL);
+                    clone.find("#views").text(value.views);
+                    clone.find("#favorites").text(value.favorites);
+                    clone.find("#likes").text(value.likes);
+                    clone.find("#downloads").text(value.downloads);
+                    clone.find("#tags").text(value.tags);
+
+                    // I use srcset attribute as substitute if the original image is missing
+                    clone.find("#author-image").attr("srcset", value.userImageURL + ", https://pixabay.com/static/img/profile_image_dummy.svg");
+
+                    var username = value.user;
+                    clone.find("#author-name").text(username);
+                    var userURL = "https://pixabay.com/users/" + username.toLowerCase() + "-" + value.user_id;
+                    clone.find("#author-name").attr("href", userURL);
+                    clone.removeAttr("style");
+
+                    $("#photo-container").append(clone);
+                });
+
+                // $("#element-clone").remove();
+            }).fail(function () {
+                console.log("failed");
+            });
+        }
+
+        callApi();
+    </script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+    </script>
+</body>
+
+</html>
