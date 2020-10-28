@@ -55,6 +55,10 @@
                             <input type="text" id="searchInput" class="form-control" />
                         </div>
                         <div class="form-group">
+                            <label for="pageInput" class="form-control-label">Страница</label>
+                            <input type="number" min="1" id="pageInput" class="form-control" value="1" />
+                        </div>
+                        <div class="form-group">
                             <label for="limitInput" class="form-control-label">Елементи на страница</label>
                             <input type="number" min="3" max="200" id="limitInput" class="form-control" value="6" />
                         </div>
@@ -193,6 +197,11 @@
             query = $("#searchInput").val();
             lang = $("#langInput").val();
             category = $("#categoryInput").val();
+            page = $("#pageInput").val();
+            if (page < 1) {
+                $("#pageInput").val(1);
+            }
+
             perPage = $("#limitInput").val();
             if (perPage < 3) {
                 $("#limitInput").val(3);
