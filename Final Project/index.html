@@ -21,26 +21,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body style="background-color: #fbfbfb;">
     <div class="container-fluid mt-5">
-        <!-- <div class="row">
-            <div id="filter-container" class="col-12">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <div class="form-group">
-                            <input type="number" min="3" max="20" class="form-control"
-                            placeholder="Items per page" />
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <p>Here</p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <p>Here</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="row">
             <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-2 mb-4">
                 <div class="d-flex">
@@ -108,6 +90,63 @@
                                 <label for="saveSearchInput" class="custom-control-label">*Safe search*</label>
                             </div>
                         </div>
+                        <hr />
+                        <div class="form-group">
+                            <span>Цветове</span>
+                            <div class="custom-control custom-checkbox">
+                                <input id="grayColor" type="checkbox" class="custom-control-input">
+                                <label for="grayColor" class="custom-control-label">Сив</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="transparentColor" type="checkbox" class="custom-control-input">
+                                <label for="transparentColor" class="custom-control-label">Прозрачен</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="redColor" type="checkbox" class="custom-control-input">
+                                <label for="redColor" class="custom-control-label red-text">Червен</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="orangeColor" type="checkbox" class="custom-control-input">
+                                <label for="orangeColor" class="custom-control-label orange-text">Оранжев</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="yellowColor" type="checkbox" class="custom-control-input">
+                                <label for="yellowColor" class="custom-control-label text-warning">Жълт</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="greenColor" type="checkbox" class="custom-control-input">
+                                <label for="greenColor" class="custom-control-label green-text">Зелен</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="turquoiseColor" type="checkbox" class="custom-control-input">
+                                <label for="turquoiseColor" class="custom-control-label cyan-text">Тюркоаз</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="blueColor" type="checkbox" class="custom-control-input">
+                                <label for="blueColor" class="custom-control-label blue-text">Син</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="lilacColor" type="checkbox" class="custom-control-input">
+                                <label for="lilacColor" class="custom-control-label purple-text">Лилав</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="pinkColor" type="checkbox" class="custom-control-input">
+                                <label for="pinkColor" class="custom-control-label pink-text">Розов</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="whiteColor" type="checkbox" class="custom-control-input">
+                                <label for="whiteColor" class="custom-control-label bg-dark white-text">Бял</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="blackColor" type="checkbox" class="custom-control-input">
+                                <label for="blackColor" class="custom-control-label black-text">Черен</label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input id="brownColor" type="checkbox" class="custom-control-input">
+                                <label for="brownColor" class="custom-control-label brown-text">Кафяв</label>
+                            </div>
+                        </div>
+
                         <a id="applyBtn" href="#" class="btn btn-primary btn-sm btn-round ml-0">Филтрирай</a>
                     </div>
                 </div>
@@ -116,8 +155,8 @@
                 <div class="d-flex">
                     <h3>Снимки</h3>
                     <h3 class="ml-auto">
-                        <i class="fas fa-th-large mr-3 text-primary" style="cursor: pointer;"></i>
-                        <i class="fas fa-list grey-text" style="cursor: pointer;"></i>
+                        <i id="grid-icon" class="fas fa-th-large mr-3 text-primary" style="cursor: pointer;"></i>
+                        <i id="list-icon" class="fas fa-list grey-text" style="cursor: pointer;"></i>
                     </h3>
                 </div>
                 <hr>
@@ -126,7 +165,7 @@
         </div>
     </div>
 
-    <div id="element-clone" class="col-12 col-lg-6 col-xl-4 mb-4" style="display: none;">
+    <div id="element-clone-grid" class="col-12 col-lg-6 col-xl-4 mb-4" style="display: none;">
         <div class="card">
             <div class="view overlay">
                 <img id="main-image" class="card-img-top" src="#" alt="Card image cap">
@@ -155,7 +194,7 @@
 
                 <hr>
                 <div class="d-flex justify-content-start">
-                    <div class="g-mt-2">
+                    <div>
                         <img id="author-image" class="rounded-circle mr-2" style="height: 50px; width: 50px;" src="#"
                             srcset="#" alt=" Unknown image">
                     </div>
@@ -170,6 +209,46 @@
         </div>
     </div>
 
+    <div id="element-clone-list" class="col-12 col-xl-6" style="display: none;">
+        <div class="d-flex">
+            <a id="main-image-link" href="#" target="_blank">
+                <img id="main-image" class="mr-4" width="200">
+            </a>
+            <div class="">
+                <div class="mb-2">
+                    <span id="tags"></span>
+                </div>
+                <div>
+                    <i class="far fa-eye text-info" title="Views"></i>
+                    <span id="views" title="Views">54</span>
+                    <span>&bull;</span>
+                    <i class="fas fa-heart text-danger" title="Favorites"></i>
+                    <span id="favorites" title="Favorites">494</span>
+                    <span>&bull;</span>
+                    <i class="far fa-thumbs-up text-success" title="Likes"></i>
+                    <span id="likes" title="Likes">89</span>
+                    <span>&bull;</span>
+                    <i class="fas fa-download grey-text" title="Downloads"></i>
+                    <span id="downloads" title="Downloads">34</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-start">
+                    <div>
+                        <img id="author-image" class="rounded-circle mr-2" style="height: 40px; width: 40px;" src="#"
+                            srcset="#" alt=" Unknown image">
+                    </div>
+                    <div class="align-self-center g-px-10">
+                        <h5 class="h6 font-weight-bold">
+                            <a id="author-name" href="#" class="text-dark" target="_blank">Author</a>
+                        </h5>
+                        <!-- <p class="m-0">Text</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+
     <script>
         var apiKey = "7800072-61da03e5f9a4b085174c2f98f";
         var query = "";
@@ -179,6 +258,22 @@
         var category = "";
         var isEditorsChoice = false;
         var isSafeSearch = false;
+
+        var isGrid = true;
+
+        $("#grid-icon").click(function () {
+            isGrid = true;
+            $("#grid-icon").addClass("text-primary");
+            $("#list-icon").removeClass("text-primary");
+            applyBtnClick();
+        });
+
+        $("#list-icon").click(function () {
+            isGrid = false;
+            $("#list-icon").addClass("text-primary");
+            $("#grid-icon").removeClass("text-primary");
+            applyBtnClick();
+        });
 
         $("#applyBtn").click(function () {
             applyBtnClick();
@@ -230,7 +325,13 @@
                 }
 
                 $.each(data.hits, function (index, value) {
-                    var clone = $("#element-clone").clone();
+                    var clone;
+                    if (isGrid) {
+                        clone = $("#element-clone-grid").clone();
+                    } else {
+                        clone = $("#element-clone-list").clone();
+                    }
+
                     clone.removeAttr("id");
                     clone.find("#main-image").attr("src", value.largeImageURL);
                     clone.find("#main-image-link").attr("href", value.pageURL);
@@ -252,7 +353,7 @@
                     $("#photo-container").append(clone);
                 });
 
-                // $("#element-clone").remove();
+                // $("#element-clone-grid").remove();
             }).fail(function () {
                 console.log("failed");
             });
