@@ -362,12 +362,116 @@
 
         function getColorsParam() {
             var result = "";
-            var count = 0;
-            var separator = ""
+            var isSelected = false;
+            var separator = ", ";
 
-            if (true) {
-                count++;
+            if ($("#grayColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "gray";
+                } else {
+                    isSelected = true;
+                    result = "gray";
+                }
             }
+            if ($("#transparentColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "transparent";
+                } else {
+                    isSelected = true;
+                    result = "transparent";
+                }
+
+            }
+            if ($("#redColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "red";
+                } else {
+                    isSelected = true;
+                    result = "red";
+                }
+            }
+            if ($("#orangeColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "orange";
+                } else {
+                    isSelected = true;
+                    result = "orange";
+                }
+            }
+            if ($("#yellowColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "yellow";
+                } else {
+                    isSelected = true;
+                    result = "yellow";
+                }
+            }
+            if ($("#greenColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "green";
+                } else {
+                    isSelected = true;
+                    result = "green";
+                }
+            }
+            if ($("#turquoiseColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "turquoise";
+                } else {
+                    isSelected = true;
+                    result = "turquoise";
+                }
+            }
+            if ($("#blueColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "blue";
+                } else {
+                    isSelected = true;
+                    result = "blue";
+                }
+            }
+            if ($("#lilacColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "lilac";
+                } else {
+                    isSelected = true;
+                    result = "lilac";
+                }
+            }
+            if ($("#pinkColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "pink";
+                } else {
+                    isSelected = true;
+                    result = "pink";
+                }
+            }
+            if ($("#whiteColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "white";
+                } else {
+                    isSelected = true;
+                    result = "white";
+                }
+            }
+            if ($("#blackColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "black";
+                } else {
+                    isSelected = true;
+                    result = "black";
+                }
+            }
+            if ($("#brownColor").is(":checked")) {
+                if (isSelected) {
+                    result += separator + "brown";
+                } else {
+                    isSelected = true;
+                    result = "brown";
+                }
+            }
+
+            return result;
         }
 
         callApi();
